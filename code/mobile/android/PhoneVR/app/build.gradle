@@ -83,25 +83,13 @@ android {
     }
     flavorDimensions "gvr"
     productFlavors {
-        gvr {
-            dimension "gvr"
-            externalNativeBuild {
-                cmake {
-                    arguments "-D HAVEGVR=true"
-                }
-            }
-        }
         noGvr {
             dimension "gvr"
-            versionNameSuffix "-nogvr"
         }
     }
     sourceSets {
         main {
             jniLibs.srcDirs = ["libraries/jni", "../ALVR/build/alvr_client_core"]
-        }
-        gvr {
-            jniLibs.srcDirs = ["libraries/jni", "libraries_gvr/jni", "../ALVR/build/alvr_client_core"]
         }
     }
     externalNativeBuild {
@@ -165,9 +153,9 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$androidXTestVersion"
     androidTestUtil "androidx.test.services:test-services:$servicesVersion"
 
-    gvrImplementation 'com.google.vr:sdk-base:1.200.0@aar'
+    //gvrImplementation 'com.google.vr:sdk-base:1.200.0@aar'
     implementation 'com.google.cardboard.sdk:cardboard-sdk:1.17.0@aar'
-    implementation 'io.github.zxing-cpp:android:2.3.0-SNAPSHOT'
+    implementation 'io.github.zxing-cpp:android:2.3.0'
     implementation 'com.google.protobuf:protobuf-javalite:3.19.4'
     implementation 'androidx.camera:camera-core:1.3.4'
     implementation 'androidx.camera:camera-view:1.3.4'
